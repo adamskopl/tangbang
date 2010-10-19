@@ -51,8 +51,8 @@ prepareOpenGL(int sw, int sh)
 int main(void){
 
 
-  int sw = 1280;
-  int sh = 800;
+  int sw = 640;
+  int sh = 480;
 
   SDL_Surface *screen;
   bool loopDone = false;
