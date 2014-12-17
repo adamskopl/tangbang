@@ -77,7 +77,8 @@ int main(void){
 			    |SDL_OPENGL
 			    |SDL_HWSURFACE
 			    |SDL_DOUBLEBUF
-			    |SDL_FULLSCREEN
+			    // uncommment for fullscreen
+			    //|SDL_FULLSCREEN
 			    );
   prepareOpenGL(sw, sh);
 
