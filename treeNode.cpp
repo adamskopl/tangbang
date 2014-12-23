@@ -1,6 +1,5 @@
 #include "treeNode.h"
 
-void treeNode::fun()
-{
+void treeNode::fun() {
 
 }
