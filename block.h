@@ -18,6 +18,7 @@
 #define __BLOCK_H
 #include "object.h"
 #include "enemy.h"
+#include "tree.h"
 
 class block: public object {
 public:

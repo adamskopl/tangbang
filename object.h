@@ -18,7 +18,7 @@
 #define __OBJECT_H
 
 #include "vector.h"
-#include "node.h"
+#include "tree.h"
 #include <SDL/SDL.h>
 #include <GL/gl.h>
 
@@ -26,7 +26,7 @@ enum cond {
 	DEAD, DYING, LIVING
 };
 
-class object: public node {
+class object: public CNode {
 
 public:
 	vector2d position;

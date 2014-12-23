@@ -113,7 +113,7 @@ void player::shoot() {
 	shot->acceleration.x = 0.0f;
 	shot->acceleration.y = 0.0f;
 
-	shot->connectTo(this);
+	shot->AttachTo(this);
 }
 
 void player::updateSelf(float DT) {

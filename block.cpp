@@ -18,6 +18,15 @@
 #include <typeinfo>
 #include "bullet.h"
 
+block::block(vector2d DIM) {
+	dimensions = DIM;
+	eraseY = 0.0f;
+}
+
+block::~block() {
+
+}
+
 void block::drawShape() {
 
 	glColor3f(0.5f, 0.5f, 0.5f);
@@ -39,10 +48,6 @@ void block::drawShape() {
 
 void block::prepareSelf() {
 
-}
-
-block::block(vector2d DIM) {
-	dimensions = DIM;
 }
 
 void block::processCollision(object* objCol) {

@@ -62,7 +62,7 @@ void world::buildTerrain() {
 	}
 
 	for (int a = 0; a < arraySize; a++) {
-		blocks[a]->connectTo(root);
+		blocks[a]->AttachTo(root);
 	}
 }
 world::world(int SW, int SH, playback *PLAYBACK) {
@@ -85,7 +85,7 @@ world::world(int SW, int SH, playback *PLAYBACK) {
 	hero->position.y = -50.0f;
 	hero->initPosition = hero->position;
 
-	hero->connectTo(root);
+	hero->AttachTo(root);
 }
 
 void world::prepareWorld() {
@@ -148,5 +148,5 @@ void world::createEnemy() {
 	newEnemy->position.y -= 800.0f;
 	newEnemy->position.x = rand() % 20 * 100;
 
-	newEnemy->connectTo(root);
+	newEnemy->AttachTo(root);
 }

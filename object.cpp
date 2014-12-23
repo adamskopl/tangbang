@@ -19,8 +19,8 @@
 #include <math.h>
 #include <typeinfo>
 object* object::giveRootObject() {
-	if (parent)
-		return ((object*) parent)->giveRootObject();
+	if (parentNode)
+		return ((object*) parentNode)->giveRootObject();
 
 	return this;
 }
@@ -31,13 +31,13 @@ void object::draw() {
 	drawSelf();
 
 	//draw children ...
-	if (hasChild()) {
-		((object*) child)->draw();
+	if (HasChild()) {
+		((object*) childNode)->draw();
 	}
 
 	//draw brothers ...  
-	if (hasParent() && !isLast())
-		((object*) next)->draw();
+	if (HasParent() && !IsLastChild())
+		((object*) nextNode)->draw();
 }
 ;
 
@@ -58,12 +58,12 @@ void object::drawShape() {
 void object::prepare() {
 	prepareSelf();
 
-	if (hasChild()) {
-		((object*) child)->prepare();
+	if (HasChild()) {
+		((object*) childNode)->prepare();
 	}
 
-	if (hasParent() && !isLast()) {
-		((object*) next)->prepare();
+	if (HasParent() && !IsLastChild()) {
+		((object*) nextNode)->prepare();
 	}
 }
 
@@ -76,11 +76,11 @@ void object::prepareSelf() {
 void object::initFindingCollisions() {
 	findCollisions(giveRootObject());
 
-	if (hasChild())
-		((object*) child)->initFindingCollisions();
+	if (HasChild())
+		((object*) childNode)->initFindingCollisions();
 
-	if (hasParent() && !isLast())
-		((object*) next)->initFindingCollisions();
+	if (HasParent() && !IsLastChild())
+		((object*) nextNode)->initFindingCollisions();
 }
 
 void object::findCollisions(object *objCol) {
@@ -97,22 +97,22 @@ void object::findCollisions(object *objCol) {
 		processCollision(objCol);
 	}
 
-	if (objCol->hasChild())
-		findCollisions((object*) (objCol->child));
+	if (objCol->HasChild())
+		findCollisions((object*) (objCol->childNode));
 
-	if (objCol->hasParent() && !(objCol->isLast()))
-		findCollisions((object*) (objCol->next));
+	if (objCol->HasParent() && !(objCol->IsLastChild()))
+		findCollisions((object*) (objCol->nextNode));
 }
 
 void object::update(float time) {
 	updateSelf(time);
 
-	if (hasChild()) {
-		((object*) child)->update(time);
+	if (HasChild()) {
+		((object*) childNode)->update(time);
 	}
 
-	if (hasParent() && !isLast())
-		((object*) next)->update(time);
+	if (HasParent() && !IsLastChild())
+		((object*) nextNode)->update(time);
 }
 
 void object::updateSelf(float time) {
@@ -155,15 +155,15 @@ float object::giveMaxY() {
 
 void object::cleanUp() {
 
-	if (hasChild()) {
-		((object*) child)->cleanUp();
+	if (HasChild()) {
+		((object*) childNode)->cleanUp();
 	}
 
-	if (hasParent() && !isLast())
-		((object*) next)->cleanUp();
+	if (HasParent() && !IsLastChild())
+		((object*) nextNode)->cleanUp();
 
 	if (condition == DEAD) {
-		disconnect();
+		Detach();
 	}
 
 }

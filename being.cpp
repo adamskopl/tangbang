@@ -18,9 +18,14 @@
 #include "block.h"
 #include "hero.h"
 #include <typeinfo>
+
 being::being(vector2d DIM, playback* PLAYBACK) {
 	soundPlayback = PLAYBACK;
 	dimensions = DIM;
+}
+
+being::~being() {
+
 }
 
 void being::drawShape() {
