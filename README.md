@@ -1,4 +1,4 @@
-[![nil](http://adam.skobo.pl/wp-content/uploads/2014/12/tangbang06-430x283.png)](https://www.youtube.com/watch?v=M03VRuG0qH0&feature=youtu.be)
+[![nil](http://skobo.pl/screenshots/tangbang.png)](https://www.youtube.com/watch?v=M03VRuG0qH0&feature=youtu.be)
 
 # Tangbang
 
